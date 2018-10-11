@@ -7,8 +7,8 @@ var express = require('express'),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// var routes= require('./routes');
-// routes(app);
+ var routes= require('./routes');
+ routes(app);
 
 app.listen(port);
 console.log('Server Node js Connect Succesfully, start on port :'+port);
