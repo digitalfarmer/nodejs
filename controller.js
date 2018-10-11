@@ -14,7 +14,7 @@ exports.users= function (req,res) {
 };
 
 exports.index =function (req,res) {
-    resposne.ok('Welcome To Ades RestAPI made by NodeJs',res) 
+    resposne.ok('Welcome To Ades RestAPI made with NodeJs',res) 
 };
 
 exports.findUsers = function name(req,res) {
@@ -31,7 +31,7 @@ exports.findUsers = function name(req,res) {
     });
 };
 
-exports.createUsers = function name(params) {
+exports.createUsers = function (req,res) {
   
     var first_name= req.body.first_name;
     var last_name= req.body.last_name;
@@ -48,3 +48,20 @@ exports.createUsers = function name(params) {
     });
 };
 
+
+exports.updateUsers= function (req,res) {
+    
+        var user_id=req.body.user_id;
+        var first_name=req.body.first_name;
+        var last_name= req.body.last_name;
+
+        connection.query('UPDATE person SET first_name=?,last_name =? WHERE id=?',
+        [first_name,last_name,user_id],
+        function (error,rows,fields) {
+            if (error) {
+                Console.log(error)
+            } else {
+                response.ok("Update user Berhasil",res)
+            }
+        });
+};
