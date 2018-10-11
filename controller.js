@@ -65,3 +65,16 @@ exports.updateUsers= function (req,res) {
             }
         });
 };
+
+exports.deleteUser = function name(params) {
+    
+    var user_id= req.body.user_id;
+    connection.query('',[],
+    function (error,rows,fields) {
+         if (error) {
+             console.log(error)
+         } else {
+             response.ok("Berhasil Hapus user!", res)
+         }   
+    });
+};
