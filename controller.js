@@ -14,5 +14,37 @@ exports.users= function (req,res) {
 };
 
 exports.index =function (req,res) {
-    resposne.ok('konek sukses dari node js Resfull side',res) 
+    resposne.ok('Welcome To Ades RestAPI made by NodeJs',res) 
 };
+
+exports.findUsers = function name(req,res) {
+  
+    var user_id= req.params.user_id;
+    connection.query('SELECT*FROM person where id=?',
+    [user_id],
+    function (error) {
+        if (error) {
+            console.log(error)
+        } else {
+            response.ok(rows,res)
+        } 
+    });
+};
+
+exports.createUsers = function name(params) {
+  
+    var first_name= req.body.first_name;
+    var last_name= req.body.last_name;
+
+    connection.query('INSERT INTO peson(first_name,last_name) value (?,?)',
+    [first_name,last_name],
+    function (error,rows,fields) {
+        if (error) {
+            console.log(error)
+        } else {
+            resposne.ok("Register suksesfully", res)
+        }
+        
+    });
+};
+
