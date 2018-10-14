@@ -36,7 +36,7 @@ exports.createUsers = function (req,res) {
     var first_name= req.body.first_name;
     var last_name= req.body.last_name;
 
-    connection.query('INSERT INTO peson(first_name,last_name) value (?,?)',
+    connection.query('INSERT INTO person(first_name,last_name) value (?,?)',
     [first_name,last_name],
     function (error,rows,fields) {
         if (error) {
@@ -69,7 +69,7 @@ exports.updateUsers= function (req,res) {
 exports.deleteUser = function name(params) {
     
     var user_id= req.body.user_id;
-    connection.query('',[],
+    connection.query('DELETE FROM person WHERE id= ?',[user_id],
     function (error,rows,fields) {
          if (error) {
              console.log(error)
