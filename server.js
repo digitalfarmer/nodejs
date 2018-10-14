@@ -1,6 +1,6 @@
 var express = require('express'),
     app= express(),
-    port=process.env.PORT || 8000,
+    port=process.env.PORT || 3000,
     bodyParser = require('body-parser'),
     controller= require('./controller');
 
@@ -11,4 +11,4 @@ app.use(bodyParser.json());
  routes(app);
 
 app.listen(port);
-console.log('Server Node js Connect Succesfully, start on port :'+port);
+console.log('Server Node js Connect Succesfully, start on port : '+port);
